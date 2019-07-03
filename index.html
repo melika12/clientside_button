@@ -1,0 +1,42 @@
+<canvas id="myCanvas" width="200" height="200" style="border:1px solid #d3d3d3;">
+
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<button onclick="setInterval(myFunction, 100)">Click me</button>
+
+<p id="demo"></p>
+
+<script>
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.fillRect(0,0,10,10);
+a = 10;
+b = 0;
+i = c.width;
+d = c.height;
+times = 0;
+function myFunction() {
+  document.getElementById("demo").innerHTML = "You moved the box " + times + " times";
+  
+  if(a <= i)
+  {
+    ctx.fillRect(a,b,10,10);
+    ctx.clearRect(a-10,b,10,10);
+    a+=10;
+  }
+  if(a == i + 10) {
+        b += 10;
+        a = 0;
+        ctx.fillRect(a,b,10,10);
+    }
+if(b == d) {
+    ctx.fillRect(0,0,10,10);
+    ctx.clearRect(a-10,b,10,10);
+a = 10;
+b = 0;
+}
+times += 1;
+}
+
+</script>
